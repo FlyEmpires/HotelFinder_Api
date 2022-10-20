@@ -18,26 +18,49 @@ namespace HotelFinder.Api.Controllers
            
             _hotelService = hotelService;
         }
+        /// <summary>
+        /// Get All Hotels
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public List<Hotel> Get()
         {
             return _hotelService.GetAllHotels();
         }
+        /// <summary>
+        /// Get Hotel By Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public Hotel Get(int id)
         {
             return _hotelService.GetHotelsById(id);
         }
-        [HttpPost]
+        /// <summary>
+        /// Create A Hotel
+        /// </summary>
+        /// <param name="hotel"></param>
+        /// <returns></returns>
+        [HttpPost]        
         public Hotel Post([FromBody] Hotel hotel)
         {
             return _hotelService.CreateHotel(hotel);
         }
+        /// <summary>
+        /// Update A Hotel
+        /// </summary>
+        /// <param name="hotel"></param>
+        /// <returns></returns>
         [HttpPut]
         public Hotel Put([FromBody] Hotel hotel)
         {
             return _hotelService.UpdateHotel(hotel);
         }
+        /// <summary>
+        /// Delete A Hotel
+        /// </summary>
+        /// <param name="id"></param>
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
