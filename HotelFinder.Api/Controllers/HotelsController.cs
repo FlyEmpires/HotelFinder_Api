@@ -51,8 +51,8 @@ namespace HotelFinder.Api.Controllers
         /// <param name="hotel"></param>
         /// <returns></returns>
         [HttpPost]        
-        public IActionResult Post([FromBody] Hotel hotel)
-        {
+        public IActionResult Post([FromBody] Hotel hotel) // burada frombody attribute'sini kullanmamızın sebebi; bir post veya put işlemi yapacak olmamızdan dolayı, HTTP isteğinin gövdesinden (body) gelen veriyi alabilmek içindir. 
+        {// Bu attribute POST ve PUT için kullanılabilir
             if (ModelState.IsValid)
             {
                 var createdHotel=_hotelService.CreateHotel(hotel);
